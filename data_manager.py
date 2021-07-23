@@ -4,6 +4,8 @@ from vocasta import db
 from flask_login import UserMixin
 from datetime import datetime
 
+print("Run: data_manager")
+
 
 class StudyLog(db.Model):
     __tablename__ = 'study_log'
@@ -56,7 +58,7 @@ def get_data_from_db(lang_name: str) -> list:
 
 
 # # -----データベースをリセットして作り直す時の記述-----
-# db.drop_all()
+db.drop_all()
 db.create_all()
 
 
@@ -74,7 +76,7 @@ def append_word_data_to_db(lang_list: list):
         print(f"Successfully Added {lang} to the Database.")
 
 
-# append_word_data_to_db(["en", "fr", "zh", "es", "ko"])
+append_word_data_to_db(["en", "fr", "zh", "es", "ko"])
 # ---------------------------------------------------------------
 
 # ---------------- 学習記録をつけるときのサンプルコード -----------------
